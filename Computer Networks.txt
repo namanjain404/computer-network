@@ -1,0 +1,785 @@
+# Computer Networks Important Answers
+
+==================================================
+1. OSI MODEL
+==================================================
+
+Definition:
+The OSI (Open Systems Interconnection) model is a seven-layer architecture developed by ISO to standardize network communication.
+
+Layers of OSI Model:
+
+1. Application Layer
+- Provides network services to users
+
+2. Presentation Layer
+- Translation, encryption, compression
+
+3. Session Layer
+- Establishes and manages sessions
+
+4. Transport Layer
+- End-to-end delivery and error control
+
+5. Network Layer
+- Routing and logical addressing
+
+6. Data Link Layer
+- Framing and physical addressing
+
+7. Physical Layer
+- Transmission of raw bits
+
+Diagram - https://media.geeksforgeeks.org/wp-content/uploads/computer-network-osi-model-layers.png
+
+Advantages:
+- Standardization
+- Easy troubleshooting
+- Modular design
+
+
+==================================================
+2. IPV4 HEADER
+==================================================
+
+Definition:
+IPv4 is a connectionless protocol used for packet delivery.
+
+| Field               | Size    | Function          |
+| ------------------- | ------- | ----------------- |
+| Version             | 4 bits  | IP version        |
+| Header Length       | 4 bits  | Header size       |
+| Type of Service     | 8 bits  | Packet priority   |
+| Total Length        | 16 bits | Packet size       |
+| Identification      | 16 bits | Fragmentation     |
+| Flags               | 3 bits  | Fragment control  |
+| Fragment Offset     | 13 bits | Fragment position |
+| TTL                 | 8 bits  | Packet lifetime   |
+| Protocol            | 8 bits  | TCP/UDP           |
+| Header Checksum     | 16 bits | Error checking    |
+| Source Address      | 32 bits | Sender IP         |
+| Destination Address | 32 bits | Receiver IP       |
+
+Advantages:
+- Simple routing
+- Widely used
+
+
+==================================================
+3. SUBNETTING
+==================================================
+
+Definition:
+Subnetting divides a network into smaller subnetworks.
+
+Need of Subnetting:
+- Efficient IP usage
+- Reduced congestion
+- Improved security
+- Easier management
+
+Example:
+IP Address: 190.16.5.120/20
+
+Class:
+190 → Class B
+
+Default Mask:
+255.255.0.0
+
+Subnet Mask:
+255.255.240.0
+
+Network Address:
+190.16.0.0
+
+Broadcast Address:
+190.16.15.255
+
+First Host:
+190.16.0.1
+
+Last Host:
+190.16.15.254
+
+
+==================================================
+4. TCP HEADER
+==================================================
+
+Definition:
+TCP is a reliable connection-oriented transport protocol.
+
+TCP Header Fields:
+- Source Port
+- Destination Port
+- Sequence Number
+- Acknowledgment Number
+- Header Length
+- Flags
+- Window Size
+- Checksum
+- Urgent Pointer
+
+Applications of TCP:
+- Web browsing
+- Email
+- File transfer
+
+Features:
+- Reliable
+- Ordered delivery
+- Error control
+- Flow control
+
+
+==================================================
+5. TCP VS UDP
+==================================================
+
+TCP:
+- Connection-oriented
+- Reliable
+- Slow
+- Flow control present
+
+UDP:
+- Connectionless
+- Unreliable
+- Fast
+- No flow control
+
+
+==================================================
+6. SLIDING WINDOW PROTOCOL
+==================================================
+
+Definition:
+A flow-control mechanism where multiple frames are sent before acknowledgment.
+
+Advantages:
+- Efficient transmission
+- Better bandwidth utilization
+
+
+==================================================
+7. GO-BACK-N ARQ
+==================================================
+
+Definition:
+Error-control protocol where sender retransmits from erroneous frame onward.
+
+Advantages:
+- Simple implementation
+
+Disadvantages:
+- Bandwidth wastage
+
+
+==================================================
+8. SELECTIVE REPEAT ARQ
+==================================================
+
+Definition:
+Only erroneous frames are retransmitted.
+
+Advantages:
+- Efficient bandwidth usage
+
+Disadvantages:
+- Complex buffering
+
+
+==================================================
+9. DIFFERENCE BETWEEN GO-BACK-N AND SELECTIVE REPEAT
+==================================================
+
+Go-Back-N:
+- Retransmits all frames
+- Simple
+- Less buffering
+- Lower efficiency
+
+Selective Repeat:
+- Retransmits only lost frame
+- Complex
+- More buffering
+- Higher efficiency
+
+
+==================================================
+10. CSMA/CD
+==================================================
+
+Definition:
+Carrier Sense Multiple Access with Collision Detection.
+
+Working:
+1. Station senses channel
+2. If free, transmit
+3. Detect collision
+4. Send jam signal
+5. Retransmit later
+
+Advantages:
+- Reduces collisions
+
+Disadvantages:
+- Not suitable for wireless networks
+
+
+==================================================
+11. PURE ALOHA VS SLOTTED ALOHA
+==================================================
+
+Pure ALOHA:
+- Send anytime
+- More collisions
+- Efficiency = 18%
+
+Slotted ALOHA:
+- Send in slots
+- Fewer collisions
+- Efficiency = 36%
+
+
+==================================================
+12. ROUTING ALGORITHMS
+==================================================
+
+Dijkstra Algorithm:
+- Shortest path algorithm used in link-state routing
+- Fast and accurate
+
+Bellman-Ford Algorithm:
+- Distance vector routing algorithm
+- Uses neighbor information
+
+
+==================================================
+13. ETHERNET FRAME FORMAT
+==================================================
+
+Fields:
+- Preamble
+- Destination Address
+- Source Address
+- Type
+- Data
+- CRC
+
+
+==================================================
+14. EMAIL SYSTEM & SMTP
+==================================================
+
+1. Components of an E-mail System
+
+An e-mail system is a distributed application that allows users to send, receive, and store electronic messages over a network. It mainly consists of the following components:
+
+Mail User Agent (MUA):
+Interface used by users to send, receive, and read emails (e.g., Gmail, Outlook).
+2. Mail Submission Agent (MSA):
+Accepts outgoing mail from MUA and forwards it to MTA.
+3. Mail Transfer Agent (MTA):
+Transfers emails between servers using SMTP.
+4. Mail Delivery Agent (MDA):
+Delivers emails to the recipient’s mailbox.
+5. Mailbox:
+Stores received emails for users.
+6. Message Access Agent:
+Retrieves emails using POP3 or IMAP.Diagram (write in exam)
+
+You can draw:
+MUA → MSA → MTA → MTA → MDA → Mailbox → MUA
+
+2. Features of SMTP Protocol (Simple Mail Transfer Protocol)
+
+SMTP is the standard protocol used for sending emails over the Internet.
+
+1. Store and Forward Mechanism
+SMTP transfers emails from sender to recipient server via intermediate servers.
+2. Push Protocol
+SMTP only pushes emails from sender to server/recipient server.
+It does not pull emails (POP3/IMAP do that).
+3. Text-Based Protocol
+Uses simple ASCII commands for communication.
+Easy to implement and debug.
+4. Reliable Delivery Using TCP
+Works on TCP port 25 (default).
+Ensures reliable transmission of email data.
+5. Uses Client-Server Model
+Sender acts as SMTP client.
+Mail server acts as SMTP server.
+6. Supports Message Routing
+Can route emails through multiple mail servers using DNS.
+7. Authentication Support
+Modern SMTP supports login authentication to prevent spam.
+8. Only Handles Outgoing Mail
+SMTP is used only for sending emails.
+Receiving is done using POP3/IMAP.
+
+==================================================
+15. GUIDED AND UNGUIDED MEDIA
+==================================================
+
+Transmission Media in Computer Networks
+
+Transmission media are the physical paths used to transfer data from sender to receiver. They are classified into Guided (Wired) and Unguided (Wireless) media.
+
+1. Guided Transmission Media (Wired)
+
+In guided media, signals travel through a physical path like cables.
+
+a) Twisted Pair Cable
+Two insulated copper wires twisted together.
+Used in telephone lines and LANs.
+Advantages: cheap, easy to install
+Disadvantages: low speed, affected by noise
+b) Coaxial Cable
+Single copper conductor with insulation and shielding.
+Used in cable TV and broadband.
+Advantages: higher bandwidth than twisted pair, less noise
+Disadvantages: bulky, costlier than twisted pair
+c) Optical Fiber Cable
+Transmits data using light signals through glass fibers.
+Used in high-speed networks and long-distance communication.
+Advantages: very high speed, high bandwidth, immune to noise
+Disadvantages: expensive, difficult installation
+2. Unguided Transmission Media (Wireless)
+
+In unguided media, signals travel through air or vacuum using electromagnetic waves.
+
+a) Radio Waves
+Used in mobile communication, FM radio, Wi-Fi.
+Can travel in all directions.
+Advantages: wide coverage, no physical medium needed
+Disadvantages: interference, security issues
+b) Microwaves
+Used in satellite communication and long-distance communication.
+Requires line-of-sight transmission.
+Advantages: high bandwidth, fast communication
+Disadvantages: affected by weather, needs towers/satellites
+c) Infrared Waves
+Used in remote controls and short-distance communication.
+Cannot pass through walls.
+Advantages: secure, no interference from other devices
+Disadvantages: very short range
+
+==================================================
+17. TELNET
+==================================================
+
+Telnet (TELecommunication NETwork) is a network protocol used for remote login to a computer over a TCP/IP network. It allows a user to access and control a remote system as if they are physically present at it.
+
+Working of Telnet
+
+Telnet uses a client-server model.
+The user runs a Telnet client to connect to a remote Telnet server.
+Communication happens over TCP port 23.
+Commands entered on the client are executed on the remote machine.
+
+Features of Telnet
+
+Provides remote login facility.
+Works on client-server architecture.
+Uses TCP (reliable connection).
+Simple text-based communication.
+Supports command execution on remote systems.
+
+Advantages
+
+Easy remote access to systems.
+Useful for network administration and troubleshooting.
+Lightweight protocol.
+
+Disadvantages
+
+Not secure (data is sent in plain text).
+Vulnerable to eavesdropping and attacks.
+Replaced by SSH (Secure Shell) in most systems.
+
+==================================================
+18. BERKELEY SOCKET API
+==================================================
+
+The Berkeley Socket API is a standard programming interface used for inter-process communication over a network. It was developed in the UNIX BSD system and is widely used for implementing client-server applications in computer networks.
+
+Definition
+
+A socket is an endpoint of communication between two machines. The Berkeley Socket API provides a set of system calls to create, use, and manage these sockets.
+
+Types of Sockets
+
+Stream Socket (TCP)
+Reliable, connection-oriented communication
+Uses TCP protocol
+Example: Web browsing, email
+2. Datagram Socket (UDP)
+Unreliable, connectionless communication
+Uses UDP protocol
+Example: Video streaming, DNS
+
+Key Socket System Calls
+
+1. socket()
+Creates a new socket.
+Syntax: socket(domain, type, protocol)
+2. bind()
+Assigns an IP address and port number to a socket.
+3. listen()
+Used by server to wait for client connection requests.
+4. accept()
+Accepts a connection request from a client.
+Creates a new socket for communication.
+5. connect()
+Used by client to connect to a server socket.
+6. send() / recv()
+Used for sending and receiving data.
+7. close()
+Closes the socket connection.
+
+Client-Server Working (Flow)
+
+Server side: socket → bind → listen → accept → recv/send → close
+Client side: socket → connect → send/recv → close
+
+Advantages
+Standard interface for network programming
+Supports both TCP and UDP
+Portable across UNIX-based systems
+Easy to implement client-server models
+
+==================================================
+19. Steps of Link State Routing Protocol
+==================================================
+
+Link State Routing is a dynamic routing method where each router builds a complete map of the network and calculates the best path using Dijkstra’s shortest path algorithm.
+
+1. Discover Neighbors
+Each router identifies its directly connected neighbors using HELLO packets.
+2. Measure Cost to Neighbors
+Each router calculates the cost (delay, bandwidth, etc.) to each directly connected neighbor.
+3. Create Link State Packet (LSP)
+Router creates an LSP containing:
+Router ID
+List of neighbors
+Cost to each neighbor
+Sequence number and age
+4. Flooding of LSP
+LSP is sent to all routers in the network.
+Each router forwards it to its neighbors (flooding process).
+5. Build Link State Database (LSDB)
+Each router collects all LSPs and builds a complete network topology map.
+6. Run Dijkstra’s Algorithm
+Each router calculates the shortest path tree from itself to all other routers.
+Determines best next hop for routing.
+7. Update Routing Table
+Based on shortest path tree, routing table is updated with best routes.
+
+==================================================
+20. Format of Link State (LS) Packet
+==================================================
+
+A Link State Packet (LSP) contains information about a router’s local links and is used in Link State Routing protocols (like OSPF).
+
+Basic Format of LSP:
+Router ID
+Identifies the router generating the LSP.
+Sequence Number
+Used to identify the latest LSP and avoid old/duplicate packets.
+Age (TTL)
+Time after which the LSP becomes invalid.
+List of Neighbors
+IDs of directly connected routers.
+Cost to Neighbors
+Metric (delay, bandwidth, etc.) to each neighbor.
+
+------------------------------------------------
+| Router ID | Seq No | Age | Neighbor List     |
+|            |        |     | + Cost values     |
+------------------------------------------------
+
+How does a router obtain these values?
+1. Router ID
+Assigned manually or automatically (highest IP or loopback address).
+2. Neighbors
+Discovered using HELLO packets exchanged between directly connected routers.
+3. Cost to Neighbors
+Calculated based on network metrics like:
+Bandwidth
+Delay
+Load
+Reliability
+4. Sequence Number
+Generated and incremented by the router every time a new LSP is created.
+5. Age (TTL)
+Set by the originating router.
+Decreases over time; LSP is removed when it expires.
+
+==================================================
+21. Compare Leaky bucket and Token bucket algorithms.
+==================================================
+
+img - https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKz84ygK4WXBpN_7D1HT48hOyREvHieXQ6jg&s
+
+==================================================
+22. HTTP
+==================================================
+
+HTTP (Hypertext Transfer Protocol) is an application layer protocol used for transferring web pages and other resources between a web browser (client) and a web server on the Internet.
+
+Working of HTTP
+
+HTTP follows a client–server model.
+The client (browser) sends an HTTP request to the server.
+The server processes the request and sends back an HTTP response.
+Communication is generally stateless.
+
+Key Features of HTTP
+
+Stateless Protocol
+- Each request is independent; server does not store previous interactions.
+Connectionless (in basic form)
+- Connection is closed after response (HTTP/1.0), but HTTP/1.1 supports persistent connections.
+Uses TCP
+- Runs over TCP port 80 for reliable data transfer.
+Request–Response Model
+- Client sends request, server sends response.
+Media Independent
+   - Can transfer text, images, videos, audio, etc.
+
+HTTP Request Methods
+
+GET → Retrieve data from server
+POST → Send data to server
+PUT → Update data
+DELETE → Remove data
+
+HTTP Message Structure
+
+1. Request Message
+Request line (method, URL, version)
+Headers
+Body (optional)
+2. Response Message
+Status line (status code)
+Headers
+Body (web content)
+
+Common Status Codes
+
+200 OK → Successful request
+404 Not Found → Resource not found
+500 Server Error → Internal server error
+301 Moved Permanently → Page redirected
+
+==================================================
+23. Open loop Congestion control
+==================================================
+
+Open loop congestion control refers to the techniques used in a network to prevent congestion before it occurs, without requiring feedback from the network.
+
+In this approach, decisions are made at the design or source level, and the system does not adjust dynamically based on network conditions.
+
+Techniques of Open Loop Congestion Control
+
+1. Retransmission Policy
+Proper retransmission strategies are used to avoid unnecessary packet retransmissions.
+Reduces extra load on the network.
+2. Window Policy
+Controls the number of packets sent before receiving acknowledgment.
+Uses techniques like sliding window to limit traffic.
+3. Acknowledgment Policy
+Reduces congestion by controlling ACK frequency.
+Example: Delayed ACKs or cumulative ACKs.
+4. Discarding Policy
+Routers may drop less important packets when memory is full.
+Helps maintain quality of important traffic.
+5. Admission Policy
+New connections are allowed only if the network has enough resources.
+Prevents overloading the network.
+
+Characteristics
+
+Preventive approach (not reactive)
+No feedback from network congestion state
+Designed to avoid congestion before it happens
+
+==================================================
+24. Wireless LAN
+==================================================
+
+A Wireless LAN (WLAN) is a type of local area network that allows devices to communicate without physical cables, using radio waves. It provides network connectivity within a limited area such as homes, offices, campuses, and public hotspots.
+
+Basic Working
+
+Devices connect to a Wireless Access Point (AP).
+The access point acts like a central hub and connects to a wired network or Internet.
+Communication happens using IEEE 802.11 standards (Wi-Fi).
+
+Components of WLAN
+
+Wireless Access Point (AP)
+- Central device that connects wireless devices to the network.
+Wireless Network Interface Card (NIC)
+- Installed in devices to enable wireless communication.
+Wireless Devices
+- Laptops, smartphones, tablets, etc.
+Distribution System
+   - Connects multiple access points and wired networks.
+
+Types of WLAN Architecture
+
+Infrastructure Mode
+- Devices communicate through an access point.
+- Most common mode in Wi-Fi networks.
+Ad-hoc Mode
+   - Devices communicate directly without an access point.
+
+Advantages
+
+Easy installation (no cables required)
+Mobility and flexibility
+Cost-effective for small/medium areas
+Easy network expansion
+
+Disadvantages
+
+Lower security compared to wired LAN
+Limited range
+Interference from other devices
+Slower than wired networks in some cases
+
+==================================================
+25. ARQ Mechanisms: Stop-and-Wait, Go-Back-N, Selective Repeat
+==================================================
+
+1. Stop-and-Wait ARQ
+
+Working
+
+Sender sends one frame at a time.
+Sender waits for ACK before sending next frame.
+If ACK is not received within time, frame is retransmitted.
+
+Diagram - https://media.geeksforgeeks.org/wp-content/uploads/Stop-and-Wait-ARQ.png
+
+Disadvantages
+
+Very slow, low efficiency
+Channel remains idle while waiting for ACK
+
+2. Go-Back-N ARQ
+
+Working
+
+Sender can send multiple frames (window size N) without waiting.
+Receiver accepts frames in order only.
+If an error occurs, receiver discards that frame and all subsequent frames.
+Sender retransmits from the error frame onwards.
+
+Diagram - https://scaler.com/topics/images/another-working-of-go-back-n-arq-protocol.webp
+
+Advantages
+
+Better efficiency than Stop-and-Wait
+Continuous transmission possible
+
+3. Selective Repeat ARQ
+
+Working
+
+Sender sends multiple frames using window.
+Receiver accepts and stores correct frames even if out of order.
+Only erroneous or lost frames are retransmitted.
+
+Diagram - https://media.geeksforgeeks.org/wp-content/uploads/20240812152252/selective-repeat.jpg
+
+Advantages
+
+Most efficient ARQ method
+No unnecessary retransmission
+
+Disadvantages
+
+Complex implementation
+Requires buffering at receiver
+
+Comparison Summary
+
+| Feature          | Stop-and-Wait | Go-Back-N        | Selective Repeat |
+| ---------------- | ------------- | ---------------- | ---------------- |
+| Frames at a time | 1             | Multiple         | Multiple         |
+| Efficiency       | Low           | Medium           | High             |
+| Retransmission   | One by one    | From error frame | Only lost frames |
+| Complexity       | Simple        | Medium           | High             |
+
+==================================================
+26. DNS
+==================================================
+
+DNS (Domain Name System) is a naming system used to convert domain names (like www.google.com) into IP addresses that computers use for communication.
+
+It acts like the telephone directory of the Internet.
+
+Need for DNS
+
+Humans remember names easily.
+Computers communicate using IP addresses.
+DNS translates domain names into IP addresses.
+
+Working of DNS
+
+User enters a domain name in browser.
+DNS resolver sends query to DNS server.
+DNS server finds corresponding IP address.
+IP address is returned to browser.
+Browser connects to the destination server.
+
+Components of DNS
+
+DNS Resolver
+- Receives query from client.
+Root Server
+- Directs query to top-level domain server.
+Top-Level Domain (TLD) Server
+- Handles domains like .com, .org, .edu.
+Authoritative DNS Server
+   - Stores actual IP address of domain.
+
+Features of DNS
+
+Hierarchical distributed database
+Provides name-to-IP mapping
+Supports email routing
+Improves scalability and reliability
+
+Advantages
+
+Easy to remember website names
+Faster access using caching
+Distributed and scalable system
+
+
+==================================================
+27. Compare IPv4 and IPv6
+==================================================
+
+https://www.mindstick.com/MindstickForums/efe06266-4569-4854-bb27-36d2ae8ccff8/images/e6b288de-83a9-4545-9526-0a8f5e9a1880.gif
+
+==================================================
+28. Compare HTTP and HTTPS
+==================================================
+
+https://static.wixstatic.com/media/67623d_8360bd763f344dd9ab3fd5875541a23a~mv2.jpg/v1/fill/w_675,h_580,al_c,q_85/67623d_8360bd763f344dd9ab3fd5875541a23a~mv2.jpg
+
+==================================================
+29. Compare TCP and UDP
+==================================================
+
+https://files.codingninjas.in/article_images/tcp-vs-udp-0-1643559404.webp
+
+
+
+
